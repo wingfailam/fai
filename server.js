@@ -8,6 +8,7 @@ const handle = app.getRequestHandler()
 const path = require('path');
 const fs = require('fs'); 
 
+
 // const taiwantravel = require('./pages/taiwantravel/index.html');
 
 app.prepare().then(() => {
@@ -17,35 +18,21 @@ app.prepare().then(() => {
   
   server.use(express.static(path.join(__dirname, 'public')));
 // http://localhost:3000/api/projects/2019-02-12-%E5%81%89%E4%BB%94
-  server.get('/api/projects/', (req, res) => {
-    fs.readdir(__dirname + '/public/'+'projects/', (err, folders) => { 
-        if (err) 
-          console.log(err); 
-        else { 
-          folders =folders.filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
-          console.log("\nCurrent directory filenames:"); 
-          folders.forEach(file => { 
-            console.log(file); 
-          }) 
-          // folders = folders.map(el=>'http://' +req.headers.host+'/projects/' +el)
-          res.json(folders);
-        } 
-      }) 
-  })
+  // server.get('/api/projects/', projects);
   server.get('/api/projects/:projectsID', (req, res) => {
-    fs.readdir(__dirname + '/public/'+'projects/' +req.params.projectsID, (err, files) => { 
-        if (err) 
-          console.log(err); 
-        else { 
-          files = files.filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
-          console.log("\nCurrent directory filenames:"); 
-          files.forEach(file => { 
-            console.log(file); 
-          }) 
-          files = files.map(el=>'http://' +req.headers.host+'/projects/' +req.params.projectsID +'/' +el)
-          res.json(files);
-        } 
-      }) 
+    // fs.readdir(__dirname + '/public/'+'projects/' +req.params.projectsID, (err, files) => { 
+    //     if (err) 
+    //       console.log(err); 
+    //     else { 
+    //       files = files.filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
+    //       console.log("\nCurrent directory filenames:"); 
+    //       files.forEach(file => { 
+    //         console.log(file); 
+    //       }) 
+    //       files = files.map(el=>'http://' +req.headers.host+'/projects/' +req.params.projectsID +'/' +el)
+    //       res.json(files);
+    //     } 
+    //   }) 
   })
 
   server.all('*', (req, res) => {

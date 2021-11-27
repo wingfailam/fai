@@ -8,11 +8,6 @@ export default function Home() {
           <a>a</a>
         </Link>
       </li>
-      <li>
-        <Link href="/a" as="/b">
-          <a>b</a>
-        </Link>
-      </li>
     </ul>
   )
 }
