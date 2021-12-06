@@ -73,7 +73,7 @@ export default () => {
                                     <b>MORE</b>
                                     <ul>
                                         <li>
-                                            <Link href="www.linkedin.com/in/wingfailam" as="www.linkedin.com/in/wingfailam">
+                                            <Link href="https://www.linkedin.com/in/wingfailam/" as="https://www.linkedin.com/in/wingfailam/">
                                                 <a><FontAwesomeIcon icon={faLinkedin} size="lg" /></a>
                                             </Link>
                                             <Link href="https://github.com/wingfailam" as="https://github.com/wingfailam">
