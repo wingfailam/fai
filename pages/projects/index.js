@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
-import { getProjectsNamesAndCovers } from '../../lib/projects'
+import { getProjects } from '../../lib/Images'
 import Images from '../../components/Images'
 import Covers from '../../components/Covers'
 
@@ -47,7 +47,7 @@ const Header = styled.header`
     }
 
 `
-export default function ({ projectsNamesAndCovers }) {
+export default function ({ projects }) {
 
     // const test = projectsNames[0].split('-')[3]
     // console.log(test)
@@ -56,9 +56,8 @@ export default function ({ projectsNamesAndCovers }) {
     // });
     // console.log(projectsNamesPure)
 
-    console.log(projectsNamesAndCovers)
-    const covers = projectsNamesAndCovers.map(el => el.cover)
-    console.log(covers);
+    // const covers = projects.map(el => el.cover)
+    // console.log(covers);
 
     const title = 'PROJECTS';
     return (
@@ -73,17 +72,18 @@ export default function ({ projectsNamesAndCovers }) {
                 {/* <Images projectImages={covers}></Images> */}
                 <Header className="header"></Header>
                 <h2>PROJECTS</h2>
-                <Covers path="projects" projects={projectsNamesAndCovers} />
+                <Covers path="projects" covers={projects} />
             </Projects>
         </Layout>
     )
 }
 
 export async function getStaticProps() {
-    const projectsNamesAndCovers = getProjectsNamesAndCovers();
+    const projects = getProjects();
+    console.log('??????????????', projects)
     return {
         props: {
-            projectsNamesAndCovers
+            projects
         }
     }
 }

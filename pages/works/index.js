@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
-import { getWorks } from '../../lib/projects'
+import { getWorks } from '../../lib/Images'
 import Images from '../../components/Images'
 import Covers from '../../components/Covers'
 import { useState } from 'react'
@@ -68,7 +68,7 @@ border: 1px solid #eee;
 background-color: #111;
 flex: 1 1 123px;
 cursor: pointer;
-.all {
+&.all {
     flex: 1 1 123px;
     flex: 1 1 100%;
     // border-bottom: none;
@@ -103,7 +103,7 @@ export default function ({ categories, works }) {
                     <Category className="category all" onClick={() => setFilteredWorks(works)}><h3>ALL</h3></Category>
                     {categoryButtons}
                 </Categories>
-                <Covers path="works" projects={filteredWorks} key={filteredWorks} />
+                <Covers path="works" covers={filteredWorks} key={filteredWorks} />
 
 
             </Projects>

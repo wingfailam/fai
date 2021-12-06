@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { getProjectsNames, getProjectImages } from '../../lib/projects'
+import { getProjectsPaths, getProjectImages } from '../../lib/Images'
 import Images from '../../components/Images'
 import Layout from '../../components/Layout'
 import styled from '@emotion/styled'
@@ -25,7 +25,8 @@ export default ({ images }) => {
         <>
             <Head>
                 <title>{name}</title>
-
+                <meta property="og:image" content={images[0]} />
+                <meta property="og:description" content={name + " WING-FAI 輝 | 前端工程師 / 業餘攝影師"} />
             </Head>
             <ThemeProvider theme={{ withBgi: true }}>
                 <Layout >
@@ -49,7 +50,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const projects = getProjectsNames()
+    const projects = getProjectsPaths()
     const paths = projects.map((project) => ({
         params: { id: project },
     }))

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-
+import Link from 'next/link'
 
 const Footer = styled.footer`
     *{
@@ -82,8 +82,11 @@ export default function () {
                 <div className="footer-wrapper follow">
                     <div className="title">FOLLOW</div>
                     <div className="content">
-                        <span>IG</span>
-                        <span>FB</span>
+                        <Link href="https://www.instagram.com/fai_syasin/" as="https://www.instagram.com/fai_syasin/">
+                            <a><span>IG</span></a>
+                        </Link>
+
+                        {/* <span>FB</span> */}
                     </div>
                 </div>
             </div>

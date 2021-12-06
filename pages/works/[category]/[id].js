@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { getWorksPaths, getWorksImages } from '../../../lib/projects'
+import { getWorksPaths, getWorksImages } from '../../../lib/Images'
 import Images from '../../../components/Images'
 import Layout from '../../../components/Layout'
 import styled from '@emotion/styled'
@@ -19,12 +19,13 @@ h3{
 export default ({ images }) => {
     const router = useRouter()
     const { id } = router.query
-    const name = id.split('-')[3]
+    const name = id.split('-')[3] || id.split('-')[1]
     return (
         <>
             <Head>
                 <title>{name}</title>
-
+                <meta property="og:image" content={images[0]} />
+                <meta property="og:description" content={name + " WING-FAI 輝 | 前端工程師 / 業餘攝影師"} />
             </Head>
             <ThemeProvider theme={{ withBgi: true }}>
                 <Layout>

@@ -11,13 +11,14 @@ const Covers = styled.div`
     justify-content: space-between;
 
     a,
-    .project-wrapper {
+    .cover-wrapper {
         display: flex;
         flex-direction: column;
         flex: 1 1 340px;
         position: relative;
-        // justify-content: center;
-        // align-items: center;
+        @media (max-width:768px){
+            flex: 1 1 300px;
+        }
 
         h3 {
             margin: 0;
@@ -26,12 +27,14 @@ const Covers = styled.div`
             font-size: 12px;
             color: #555;
         }
-        .project-img {
+        .cover-img {
             // width: 400px;
             width: 100%;
             height: 300px;
             background-size: cover;
             background-position: center;
+            margin-bottom:5px;
+            z-index:1;
             @media (max-width: 768px) {
                 height: 250px;
             }
@@ -78,15 +81,21 @@ const Covers = styled.div`
     }
 
 `
-export default function ({ path, projects }) {
+export default function ({ path, covers }) {
 
     let temp = []
-    projects.forEach(element => {
+    covers.forEach(element => {
+        const idArr = element.id.split('/');
+        let path2 = ''
+        if (idArr.length > 1) {
+            path2 = idArr[0] + '/'
+        }
         temp.push(
-            <Link href={`/${path}/[id]`} as={`/${path}/${element.id}`}>
+            // <Link href={`/${path}/${path2}[id]`} as={`/${path}/${element.id}`}>
+            <Link href={`/${path}/${element.id}`} as={`/${path}/${element.id}`}>
                 <a>
-                    <div className="project-wrapper">
-                        <div className="project-img" style={{ backgroundImage: `url("${element.cover}")` }}></div>
+                    <div className="cover-wrapper">
+                        <div className="cover-img" style={{ backgroundImage: `url("${element.cover}")` }}></div>
                         <h3>{element.name}</h3>
                         <span className="year">{element.year}</span>
                     </div>
