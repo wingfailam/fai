@@ -2,9 +2,7 @@ import styled from '@emotion/styled'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
 import { getProjects } from '../../lib/Images'
-import Images from '../../components/Images'
 import Covers from '../../components/Covers'
-
 
 const Projects = styled.div`
 padding:0 10px;
@@ -48,17 +46,6 @@ const Header = styled.header`
 
 `
 export default function ({ projects }) {
-
-    // const test = projectsNames[0].split('-')[3]
-    // console.log(test)
-    // const projectsNamesPure = projectsNames.map(element => {
-    //     return element.split('-')[3];
-    // });
-    // console.log(projectsNamesPure)
-
-    // const covers = projects.map(el => el.cover)
-    // console.log(covers);
-
     const title = 'PROJECTS';
     return (
         <Layout>
@@ -80,7 +67,6 @@ export default function ({ projects }) {
 
 export async function getStaticProps() {
     const projects = getProjects();
-    console.log('??????????????', projects)
     return {
         props: {
             projects

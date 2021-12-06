@@ -1,4 +1,108 @@
+import styled from "@emotion/styled";
 import { useState, useEffect } from "react";
+
+const Imgs = styled.div`
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    position: relative;
+    padding: 0 40px;
+    z-index: 1;
+    @media (max-width: 768px) {
+        padding: 0;
+        gap: 70px;
+    }
+    div:nth-of-type(odd) {
+        &.img-wrapper {
+            justify-content: end;
+        }
+
+        .img {
+            filter: drop-shadow(-20px 20px 10px rgba(0, 0, 0, 0.7));
+        }
+    }
+    div:nth-of-type(even) {
+        .img {
+            filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.7));
+        }
+    }
+
+    .img-wrapper {
+        width: 100%;
+        display: flex;
+        position: relative;
+    }
+    .img {
+        cursor: zoom-in;
+        min-width: 100px;
+        max-width: 90%;
+        min-height: 0px;
+        max-height: 500px;
+        padding: 25px;
+    }
+    .zoomed-image-wrapper {
+        transition: all 0.5s;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1;
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba(56, 56, 56, 0.5);
+        background-color: rgba(28, 28, 28, 0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .background {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .zoomed-image {
+            justify-self: center;
+            align-self: center;
+            max-width: 90%;
+            max-height: 90%;
+            min-width: 0vw;
+            min-height: 0vh;
+        }
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            background: unset;
+            border: 0;
+            font-size: 50px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1001;
+            opacity: 0;
+            transition: all 0.5s;
+            &.active {
+                opacity: 1;
+            }
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+    }
+
+`
 
 export default function Images({ images }) {
     const [active, setActive] = useState(-2);
@@ -7,16 +111,13 @@ export default function Images({ images }) {
     const click = (index) => {
         if (index < 0) {
             index = images.length - 1;
-
         } else if (index >= images.length) {
             index = 0;
         }
         setActive(index);
-
     }
 
     useEffect(() => {
-
         const close = (e) => {
             if (e.keyCode === 27) {
                 setActive(-2)
@@ -31,8 +132,6 @@ export default function Images({ images }) {
             timeoutID = setTimeout(() => {
                 setIsMoving(false)
             }, 1000)
-
-
         }
         window.addEventListener('keydown', close)
         window.addEventListener('mousemove', handleMousemove)
@@ -40,16 +139,8 @@ export default function Images({ images }) {
     }, [])
     let temp = []
     images.forEach((element, index) => {
-        // temp.push(<div className="img" style={{ backgroundImage: `url("${element}")` }}></div>)
-        // const src = require('../' + 'public/images/background-light.jpg')
-        let zoom = `
-        
-        `
-
-
-
         temp.push(
-            <div className="img-wrapper">
+            <div className="img-wrapper" key={element}>
                 <img className="img" src={element} onClick={() => click(index)}>
                 </img>
                 <div className={'zoomed-image-wrapper' + (active == index ? ' active' : '')} >
@@ -61,7 +152,7 @@ export default function Images({ images }) {
             </div>
         )
     });
-    // return (<div className="images" >{temp}</div>);
-    return (<div className="imgs" >{temp}</div>);
+
+    return (<Imgs className="imgs">{temp}</Imgs>);
 }
 

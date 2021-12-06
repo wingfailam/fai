@@ -76,10 +76,14 @@ cursor: pointer;
     border-left: none;
     border-right: none;
 }
+.active{
+    background-color: red;
+}
 
 `
 export default function ({ categories, works }) {
     const categoryButtons = categories.map(el => <Category className="category" onClick={() => setFilteredWorks(filterWorks(el))}><h3>{el.toUpperCase()}</h3></Category>)
+    // const [chosenCategory, setChosenCategory  ] = useState('all');
     const [filteredWorks, setFilteredWorks] = useState(works);
     const filterWorks = (category) => {
         return works.filter(el => el.category == category)
@@ -100,7 +104,7 @@ export default function ({ categories, works }) {
                 <h2>WORKS</h2>
 
                 <Categories className="categories">
-                    <Category className="category all" onClick={() => setFilteredWorks(works)}><h3>ALL</h3></Category>
+                    <Category className={"category all"} onClick={() => setFilteredWorks(works)}><h3>ALL</h3></Category>
                     {categoryButtons}
                 </Categories>
                 <Covers path="works" covers={filteredWorks} key={filteredWorks} />

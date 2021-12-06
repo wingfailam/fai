@@ -5,7 +5,6 @@ import Layout from "../../components/Layout"
 import { useEffect } from "react"
 import Fireflies from '../../components/fireflies.js/src/fireflies.js'
 
-
 const Info = styled.div`
 
     padding: 0 90px;
@@ -103,23 +102,18 @@ export default () => {
                     <div className="content">
                         <h2>WING-FAI 輝</h2>
                         <div>
-
                             <h3>林穎輝 &nbsp;|&nbsp; WING-FAI LAM</h3>
-
                             資訊工程出身
                             <br />
                             現為主要活動於台中的前端工程師、業餘攝影師
                             <br />
                             <br />
-
                             <b>「以 coding 做為呈現視覺藝術的媒材」</b>
                             <br />
                             <br />
                             深受香港文化與日本文化影響，把底片與數位的靜態攝影視為生活中的一部分。風格上以夜色中不慍不火的光輝為主
                             。
                             <br /><br /><br />
-
-
                             <h3>/</h3>
                             <div>
                                 <b>2020</b>
@@ -137,16 +131,8 @@ export default () => {
                                     <li>逢甲大學屏東校友會畢業典禮</li>
                                 </ul>
                             </div>
-
-
-
                         </div>
-                        {/* <p>林穎輝 / WING-FAI LAM</p>
-                        <p>前端工程師 / 業餘攝影師</p>
-                        <p>台中 台灣</p>
-                        <p>合作請洽 wingfai.tw@gmail.com</p> */}
                     </div>
-
                     <div className="pic"></div>
                 </Info>
             </Layout>

@@ -16,7 +16,6 @@ h3{
 `
 
 export default ({ images }) => {
-    // res.send('<h1>test</h1>')
     const router = useRouter()
     const { id } = router.query
     const name = id.split('-')[3]

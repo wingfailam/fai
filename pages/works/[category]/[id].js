@@ -40,7 +40,6 @@ export default ({ images }) => {
 }
 
 export async function getStaticProps({ params }) {
-    // const images = getProjectImages(params.id);
     const images = getWorksImages(params.category, params.id)
     return {
         props: {
@@ -51,13 +50,11 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const worksPaths = getWorksPaths()
-    // console.log('worksPaths', worksPaths)
     let paths = []
     worksPaths.forEach((category) => {
         category.ids.map(id => {
             paths.push({ params: { category: category.category, id } })
         })
     })
-    console.log(paths)
     return { paths, fallback: false }
 }

@@ -66,15 +66,15 @@ const Covers = styled.div`
             animation-duration: 1.5s;
         }
     }
-    a:nth-child(6n),
-    a:nth-child(6n + 1) {
+    a:nth-of-type(6n),
+    a:nth-of-type(6n + 1) {
         // background-color: red;
         flex: 1 1 390px;
         // max-width: 500px;
     }
 
-    a:nth-child(6n - 2),
-    a:nth-child(6n + 2) {
+    a:nth-of-type(6n - 2),
+    a:nth-of-type(6n + 2) {
         // background-color: blue;
         flex: 1 1 430px;
         // max-width: 500px;
@@ -91,7 +91,6 @@ export default function ({ path, covers }) {
             path2 = idArr[0] + '/'
         }
         temp.push(
-            // <Link href={`/${path}/${path2}[id]`} as={`/${path}/${element.id}`}>
             <Link href={`/${path}/${element.id}`} as={`/${path}/${element.id}`}>
                 <a>
                     <div className="cover-wrapper">

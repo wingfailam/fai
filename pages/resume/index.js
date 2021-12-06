@@ -12,6 +12,146 @@ import { faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 
 const Info = styled.div`
 
+
+    padding: 0 90px;
+    padding-top: calc(90px + 40px);
+    padding-bottom: 40px;
+    min-height: calc(100vh - 90px - 40px - 40px - 195px);
+    display: flex;
+    gap: 45px;
+    flex-direction: column;
+    @media (max-width: 768px) {
+        padding: 0 10px;
+        padding-top: calc(40px + 40px);
+        flex-direction: column;
+    }
+    div {
+        flex: 1 1 45%;
+        min-height: 35vh;
+        z-index: 1;
+        b {
+            padding-left: 0;
+        }
+        ul {
+            padding-left: 20px;
+            font-size: 15px;
+        }
+        li {
+            list-style-type: none;
+            // font-size: 13px;
+            &::marker {
+                margin: 0;
+            }
+            .svg-inline--fa {
+                margin-right: 10px;
+                font-size: 18px;
+            }
+        }
+        .link-title {
+            * {
+                color: #ac4142;
+            }
+            .svg-inline--fa {
+                font-size: 10px;
+            }
+        }
+        div {
+            font-size: 14px;
+            padding-left: 20px;
+            padding-right: 20px;
+            line-height: 20px;
+        }
+    }
+    .content {
+        flex: 1 1 35%;
+        z-index: 1;
+        h2 {
+            padding-bottom: 20px;
+        }
+        h3 {
+        }
+    }
+    .pic {
+        flex: 1 1 55%;
+        background-image: url(/images/fai/000082600003.jpg);
+        background-size: contain;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 75% 25%;
+        z-index: 1;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        @media (max-width: 768px) {
+            margin-top: 0;
+            flex: 1 1 70vh;
+            width: calc(100% - 40px);
+        }
+    }
+    .first {
+        display: flex;
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+    .second {
+        display: flex;
+        background-color: rgba(25, 25, 25, 0.5);
+        padding: 20px 0;
+        gap: 200px;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        @media (max-width: 768px) {
+            gap: 40px;
+            margin-top: 40px;
+            padding-bottom: 60px;
+        }
+        div,
+        li {
+            min-height: unset;
+            font-size: 14px;
+            .button-container {
+                padding: 0;
+                min-height: unset;
+                button {
+                    background-color: rgba(100, 100, 100, 0.5);
+                    border-radius: 15px;
+                    border: 0;
+                    margin: 5px;
+                }
+            }
+        }
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+    .third {
+        flex-direction: row-reverse;
+        display: flex;
+        min-height: 60vh;
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+        .pic {
+            background-position: center;
+            margin: 100px 20px;
+            flex: 1 1 25%;
+            background-image: url(/images/works/scene/SCENE-選輯/000002070002.jpg);
+            @media (max-width: 768px) {
+                width: calc(100% - 40px - 40px);
+            }
+        }
+        .content {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: rgba(25, 25, 25, 0.5);
+            flex: 1 1 65%;
+            @media (max-width: 768px) {
+                padding-bottom: 60px;
+            }
+        }
+    }
+
+
 `
 const title = 'RESUME';
 export default () => {
@@ -83,8 +223,6 @@ export default () => {
                                     </ul>
                                 </div>
 
-
-
                             </div>
                         </div>
                         <div className="pic"></div>
@@ -93,12 +231,12 @@ export default () => {
                         <div className="portfolio">
                             <h3>作品</h3>
                             <div>
-                                <Link href="https://www.linkedin.com/in/%E6%94%BF%E9%81%94-%E5%90%B3-767b8b203/" as="https://www.linkedin.com/in/%E6%94%BF%E9%81%94-%E5%90%B3-767b8b203/">
+                                <Link href="/" as="/">
                                     <a className="link-title"><b>WING-FAI 輝 </b><FontAwesomeIcon icon={faExternalLinkAlt} size="sm" /></a>
                                 </Link>
                                 <ul>
                                     <li>
-                                        以 React 實作，搭配 Express, Next 後端框架建造的 SSG、RWD 個人網頁，主要呈現自身攝影作品。
+                                        以 React 實作，搭配 Express, Next 後端框架建造的 SSG、RWD 個人網頁，以 GCP 創建 VM 使用 Docker 搭配 Nginx 部署，主要呈現自身攝影作品。
                                     </li>
                                 </ul>
                                 <Link href="https://wingfailam.github.io/taiwantravel/" as="https://wingfailam.github.io/taiwantravel/">
@@ -117,7 +255,7 @@ export default () => {
                                         以 Angular 實作，運用原生 Service 進行狀態管理，串接政府 TDX API，以顯示路線、站點、站點資訊、預估到站時間、車輛位置、車牌號碼等資訊的 RWD 網頁。
                                     </li>
                                 </ul>
-                                <Link href="https://github.com/wingfailam/maskmap" as="https://github.com/wingfailam/maskmap">
+                                <Link href="https://wingfailam.github.io/maskmap/" as="https://wingfailam.github.io/maskmap">
                                     <a className="link-title"><b>口罩地圖 </b><FontAwesomeIcon icon={faExternalLinkAlt} size="sm" /></a>
                                 </Link>
                                 <ul>
@@ -126,8 +264,6 @@ export default () => {
                                     </li>
                                 </ul>
                             </div>
-
-
 
                         </div>
                         <div className="skill">
@@ -142,7 +278,13 @@ export default () => {
                                 <b>JavaScript 函式庫 / 框架</b>
                                 <ul>
                                     <li>
-                                        React, Angular, Vue, jQuery, Redux, Node, Express, Next
+                                        React, Angular, Vue, jQuery, Redux
+                                    </li>
+                                </ul>
+                                <b>後端</b>
+                                <ul>
+                                    <li>
+                                        Node, Express, Next, Nginx, Docker
                                     </li>
                                 </ul>
                                 <b>雲端平台</b>
@@ -167,12 +309,6 @@ export default () => {
                                             <button>中文 母語</button>
                                             <button>台語 母語</button>
                                         </div>
-
-                                        {/* 英文 中等,
-                                        日文 N3,
-                                        廣東話 初等,
-                                        中文 母語,
-                                        台語 母語 */}
                                     </li>
                                 </ul>
                             </div>
@@ -206,14 +342,12 @@ export default () => {
                                     </ul>
                                 </div>
 
-
-
                             </div>
                         </div>
                         <div className="pic"></div>
                     </div>
                 </Info>
-            </Layout>
-        </ThemeProvider>)
+            </Layout >
+        </ThemeProvider >)
 
 }

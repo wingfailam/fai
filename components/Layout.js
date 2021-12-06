@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Nav from "./Nav"
 import Footer from "./Footer"
 import styled from "@emotion/styled"
-import { jsx, ThemeProvider } from '@emotion/react'
 
 const Layout = styled.div`
 position: relative;
@@ -42,5 +41,6 @@ export default function ({ children }) {
             {children}
             <Footer />
         </Layout>
+
     )
 }
