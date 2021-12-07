@@ -6,7 +6,7 @@ const Imgs = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 60px;
-    position: relative;
+    // position: relative;
     padding: 0 40px;
     z-index: 1;
     @media (max-width: 768px) {

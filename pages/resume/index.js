@@ -236,7 +236,7 @@ export default () => {
                                 </Link>
                                 <ul>
                                     <li>
-                                        以 React 實作，搭配 Express, Next 後端框架建造的 SSG、RWD 個人網頁，以 GCP 創建 VM 使用 Docker 搭配 Nginx 部署，主要呈現自身攝影作品。
+                                        以 React 實作，搭配 Express, Next 後端框架建造的 SSG、RWD 個人網頁，以 GCP 創建 VM 使用 Docker 在 Container 內搭配 Nginx 部署並由 certbot 產生 SSL 憑證，再重新導向至 https 且 www 之網址增益 SEO，主要呈現自身攝影作品。
                                     </li>
                                 </ul>
                                 <Link href="https://wingfailam.github.io/taiwantravel/" as="https://wingfailam.github.io/taiwantravel/">
