@@ -73,7 +73,7 @@ const Info = styled.div`
     }
     .pic {
         flex: 1 1 55%;
-        background-image: url(/images/fai/000082600003.jpg);
+        background-image: url(/images/fai/resized-50/000082600003.jpg);
         background-size: contain;
         background-size: cover;
         background-repeat: no-repeat;
@@ -135,7 +135,7 @@ const Info = styled.div`
             background-position: center;
             margin: 100px 20px;
             flex: 1 1 25%;
-            background-image: url(/images/works/scene/SCENE-選輯/000002070002.jpg);
+            background-image: url(/images/works/scene/SCENE-選輯/resized-50/000002070002.jpg);
             @media (max-width: 768px) {
                 width: calc(100% - 40px - 40px);
             }
@@ -176,7 +176,7 @@ export default () => {
                 <Head>
                     <title>{title}</title>
                     <meta property="og:title" content={title} key="title" />
-                    <meta property="og:image" content={'/images/fai/000082600003.jpg'} />
+                    <meta property="og:image" content={'/images/fai/resized-50/000082600003.jpg'} />
                     <meta property="og:description" content={title + " WING-FAI 輝 | 前端工程師 / 業餘攝影師"} />
 
                 </Head>

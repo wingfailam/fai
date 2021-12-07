@@ -103,8 +103,11 @@ export default function () {
 
                 <div className={"nav-right-container" + (isMenu ? ' active' : '')}>
                     <span className="close" onClick={triggerMenu}>༝</span>
-                    <Link href="/info" as="/info">
+                    {/* <Link href="/info" as="/info">
                         <a><ul>INFO</ul></a>
+                    </Link> */}
+                    <Link href="/resume" as="/resume">
+                        <a><ul>RESUME</ul></a>
                     </Link>
                     <Link href="/projects" as="/projects">
                         <a><ul>PROJECTS</ul></a>

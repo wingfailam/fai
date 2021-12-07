@@ -42,6 +42,10 @@ const Header = styled.header`
 
         // z-index: 1;
         background-attachment: fixed;
+       
+        @media (max-width:768px){
+            background-attachment: scroll;
+        }
     }
 
 `
