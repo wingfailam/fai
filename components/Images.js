@@ -13,7 +13,7 @@ const Imgs = styled.div`
         padding: 0;
         gap: 70px;
     }
-    div:nth-of-type(odd) {
+    div:nth-of-type(even) {
         &.img-wrapper {
             justify-content: end;
         }
@@ -22,7 +22,7 @@ const Imgs = styled.div`
             filter: drop-shadow(-20px 20px 10px rgba(0, 0, 0, 0.7));
         }
     }
-    div:nth-of-type(even) {
+    div:nth-of-type(odd) {
         .img {
             filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.7));
         }
@@ -104,6 +104,71 @@ const Imgs = styled.div`
 
 `
 
+const Zoomed = styled.div`
+
+.zoomed-image-wrapper {
+    transition: all 0.5s;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(56, 56, 56, 0.5);
+    background-color: rgba(28, 28, 28, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .zoomed-image {
+        justify-self: center;
+        align-self: center;
+        max-width: 90%;
+        max-height: 90%;
+        min-width: 0vw;
+        min-height: 0vh;
+    }
+    .prev,
+    .next {
+        position: absolute;
+        top: 50%;
+        background: unset;
+        border: 0;
+        font-size: 50px;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        z-index: 1001;
+        opacity: 0;
+        transition: all 0.5s;
+        &.active {
+            opacity: 1;
+        }
+    }
+    .prev {
+        left: 0;
+    }
+    .next {
+        right: 0;
+    }
+}
+
+`
+
 export default function Images({ images }) {
     const [active, setActive] = useState(-2);
     const [isMoving, setIsMoving] = useState(true);
@@ -149,16 +214,21 @@ export default function Images({ images }) {
             <div className="img-wrapper" key={element}>
                 <img className="img" src={coverPath} onClick={() => click(index)}>
                 </img>
-                <div className={'zoomed-image-wrapper' + (active == index ? ' active' : '')} >
-                    <div className="background" onClick={() => setActive(-2)} />
-                    <img className="zoomed-image" src={element}></img>
-                    <button className={'prev' + (isMoving ? ' active' : '')} onClick={() => click(active - 1)}>{'‹'}</button>
-                    <button className={'next' + (isMoving ? ' active' : '')} onClick={() => click(active + 1)}>{'›'}</button>
-                </div>
             </div>
         )
     });
 
-    return (<Imgs className="imgs">{temp}</Imgs>);
+    return (
+        <Imgs className="imgs">
+            <Zoomed>
+                <div className={'zoomed-image-wrapper' + (active >= 0 ? ' active' : '')} >
+                    <div className="background" onClick={() => setActive(-2)} />
+                    <img className="zoomed-image" src={images[active]}></img>
+                    <button className={'prev' + (isMoving ? ' active' : '')} onClick={() => click(active - 1)}>{'‹'}</button>
+                    <button className={'next' + (isMoving ? ' active' : '')} onClick={() => click(active + 1)}>{'›'}</button>
+                </div>
+            </Zoomed>
+            {temp}
+        </Imgs>);
 }
 

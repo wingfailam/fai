@@ -27,7 +27,7 @@ ${props => {
             // background:unset;
             // background-color: #000;
             background-image: url(/images/background-dark.jpg);
-            background-attachment: fixed;
+            // background-attachment: fixed;
             background-size: cover;
             background-position: center;
         `
