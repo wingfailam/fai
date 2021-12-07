@@ -90,11 +90,16 @@ export default function ({ path, covers }) {
         if (idArr.length > 1) {
             path2 = idArr[0] + '/'
         }
+
+        const pathArr = element.cover.split('/')
+        pathArr.splice(pathArr.length - 1, 0, 'resized-50');
+        const coverPath = pathArr.join('/')
+
         temp.push(
             <Link href={`/${path}/${element.id}`} as={`/${path}/${element.id}`}>
                 <a>
                     <div className="cover-wrapper">
-                        <div className="cover-img" style={{ backgroundImage: `url("${element.cover}")` }}></div>
+                        <div className="cover-img" style={{ backgroundImage: `url("${coverPath}")` }}></div>
                         <h3>{element.name}</h3>
                         <span className="year">{element.year}</span>
                     </div>

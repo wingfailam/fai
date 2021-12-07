@@ -10,18 +10,30 @@ padding-bottom: 195px;
     padding-bottom: 373px;
 }
 background: #111;
+
+`
+
+const Bgi = styled.div`
+
 ${props => {
         if (props.theme.withBgi) {
             return `
-                background:unset;
-                background-image: url(/images/background-dark.jpg);
-                background-color: #fff;
-                background-attachment: fixed;
-                background-size: cover;
-                background-position: center;
-            `
+            position:fixed;
+            left:0;
+            top:0;
+            width: 100vw;
+            height: 100vh;
+
+            // background:unset;
+            // background-color: #000;
+            background-image: url(/images/background-dark.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        `
         }
     }}
+
 `
 export default function ({ children }) {
 
@@ -38,6 +50,7 @@ export default function ({ children }) {
                 <meta property="og:description" content="WING-FAI 輝 | 前端工程師 / 業餘攝影師" />
             </Head>
             <Nav />
+            <Bgi />
             {children}
             <Footer />
         </Layout>

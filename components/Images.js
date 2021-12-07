@@ -139,9 +139,15 @@ export default function Images({ images }) {
     }, [])
     let temp = []
     images.forEach((element, index) => {
+
+
+        const pathArr = element.split('/')
+        pathArr.splice(pathArr.length - 1, 0, 'resized-50');
+        const coverPath = pathArr.join('/')
+
         temp.push(
             <div className="img-wrapper" key={element}>
-                <img className="img" src={element} onClick={() => click(index)}>
+                <img className="img" src={coverPath} onClick={() => click(index)}>
                 </img>
                 <div className={'zoomed-image-wrapper' + (active == index ? ' active' : '')} >
                     <div className="background" onClick={() => setActive(-2)} />

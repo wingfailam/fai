@@ -87,8 +87,6 @@ export default function ({ categories, works }) {
         return works.filter(el => el.category == category)
     }
     const categoryButtons = categories.map(el => <Category className={"category" + (chosenCategory == el ? ' active' : '')} onClick={() => setChosenCategory(el)}><h3>{el.toUpperCase()}</h3></Category>)
-    // setFilteredWorks(filterWorks(el))
-    // const [filteredWorks, setFilteredWorks] = useState(works);
     let filteredWorks = works;
     if (chosenCategory != 'all') {
         filteredWorks = filterWorks(chosenCategory)
