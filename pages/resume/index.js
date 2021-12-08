@@ -172,13 +172,14 @@ export default () => {
 
     return (
         <ThemeProvider theme={{ withBgi: true }}>
+            <Head>
+                <title>{title}</title>
+                <meta property="og:url" content="https://www.wingfailam.com/resume/" />
+                <meta property="og:image" content={'https://www.wingfailam.com/images/fai/resized-50/000082600003.jpg'} />
+            </Head>
             <Layout>
                 <Head>
-                    <title>{title}</title>
-                    <meta property="og:title" content={title} key="title" />
-                    <meta property="og:image" content={'/images/fai/resized-50/000082600003.jpg'} />
-                    <meta property="og:description" content={title + " WING-FAI 輝 | 前端工程師 / 業餘攝影師"} />
-
+                    <meta property="og:description" content="吳政達 | 前端工程師 / 業餘攝影師" />
                 </Head>
                 <Info className="resume">
 

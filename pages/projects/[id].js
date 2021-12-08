@@ -19,16 +19,22 @@ export default ({ images }) => {
     const router = useRouter()
     const { id } = router.query
     const name = id.split('-')[3]
-
+    const coverPathArr = images[0].split('/');
+    const cover = coverPathArr[coverPathArr.length - 1];
     return (
         <>
             <Head>
                 <title>{name}</title>
-                <meta property="og:image" content={images[0]} />
-                <meta property="og:description" content={name + " WING-FAI 輝 | 前端工程師 / 業餘攝影師"} />
+
+                <meta property="og:url" content={encodeURI("https://www.wingfailam.com/projects/" + id)} />
+                <meta property="og:image" content={"https://www.wingfailam.com/images/projects/" + id + "resized-50/" + cover} />
             </Head>
             <ThemeProvider theme={{ withBgi: true }}>
                 <Layout >
+                    <Head>
+                        <meta property="og:description" content={name + " - WING-FAI 輝 | 前端工程師 / 業餘攝影師"} />
+
+                    </Head>
                     <Project className="p2">
                         <h3>{id}</h3>
                         <Images images={images}></Images>

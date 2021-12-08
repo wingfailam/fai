@@ -39,15 +39,17 @@ export default function ({ children }) {
 
     return (
 
+
         <Layout>
             <Head>
-                <meta charset="utf-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                <meta property="og:url" content="https://wingfailam.com" />
+
+                <meta property="og:url" content="https://www.wingfailam.com/" />
                 <meta property="og:title" content="WING-FAI 輝" />
-                <meta property="og:image" content="/images/resized-50/preview.jpg" />
-                <meta property="og:description" content="WING-FAI 輝 | 前端工程師 / 業餘攝影師" />
+
+                <meta property="og:image" content="https://www.wingfailam.com/images/resized-50/preview.jpg" />
+                <meta property="og:description" content="林穎輝 | 前端工程師 / 業餘攝影師" />
             </Head>
             <Nav />
             <Bgi />
