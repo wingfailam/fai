@@ -105,8 +105,9 @@ const Imgs = styled.div`
 `
 
 const Zoomed = styled.div`
-
+position:absolute;
 .zoomed-image-wrapper {
+    
     transition: all 0.5s;
     overflow: hidden;
     opacity: 0;

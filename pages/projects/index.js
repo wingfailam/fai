@@ -51,11 +51,15 @@ const Header = styled.header`
 `
 export default function ({ projects }) {
     const title = 'PROJECTS';
-    return (
+    return (<>
+        <Head>
+            <meta property="og:url" content={encodeURI("https://www.wingfailam.com/projects/")} />
+            <meta property="og:image" content={encodeURI("https://www.wingfailam.com/" + 'images/projects/2019-02-12-偉仔/resized-50/DSC00063.jpg')} />
+        </Head>
         <Layout>
             <Head>
                 <title>{title}</title>
-                <meta property="og:title" content={title} key="title" />
+                <meta property="og:description" content={title + " - WING-FAI 輝 | 前端工程師 / 業餘攝影師"} />
             </Head>
 
             <Projects>
@@ -66,6 +70,7 @@ export default function ({ projects }) {
                 <Covers path="projects" covers={projects} />
             </Projects>
         </Layout>
+    </>
     )
 }
 

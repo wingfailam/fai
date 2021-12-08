@@ -99,28 +99,34 @@ export default function ({ categories, works }) {
 
     const title = 'WORKS';
     return (
-        <Layout>
+        <>
             <Head>
-                <title>{title}</title>
-                <meta property="og:title" content={title} key="title" />
+                <meta property="og:url" content={encodeURI("https://www.wingfailam.com/works/")} />
+                <meta property="og:image" content={encodeURI("https://www.wingfailam.com/" + 'images/resized-50/header-projects.jpg')} />
             </Head>
+            <Layout>
+                <Head>
+                    <title>{title}</title>
+                    <meta property="og:description" content={title + " - WING-FAI 輝 | 前端工程師 / 業餘攝影師"} />
+                </Head>
 
-            <Projects>
-                {/* <h1>{projectsNames}</h1> */}
-                {/* <Images projectImages={covers}></Images> */}
-                <Header className="header"></Header>
+                <Projects>
+                    {/* <h1>{projectsNames}</h1> */}
+                    {/* <Images projectImages={covers}></Images> */}
+                    <Header className="header"></Header>
 
-                <h2>WORKS</h2>
+                    <h2>WORKS</h2>
 
-                <Categories className="categories">
-                    <Category className={"category all" + (chosenCategory == 'all' ? ' active' : '')} onClick={() => setChosenCategory('all')}><h3>ALL</h3></Category>
-                    {categoryButtons}
-                </Categories>
-                <Covers path="works" covers={filteredWorks} key={filteredWorks} />
+                    <Categories className="categories">
+                        <Category className={"category all" + (chosenCategory == 'all' ? ' active' : '')} onClick={() => setChosenCategory('all')}><h3>ALL</h3></Category>
+                        {categoryButtons}
+                    </Categories>
+                    <Covers path="works" covers={filteredWorks} key={filteredWorks} />
 
 
-            </Projects>
-        </Layout>
+                </Projects>
+            </Layout>
+        </>
     )
 }
 

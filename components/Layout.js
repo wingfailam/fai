@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Nav from "./Nav"
 import Footer from "./Footer"
 import styled from "@emotion/styled"
+import { unset } from 'lodash'
 
 const Layout = styled.div`
 position: relative;
@@ -9,7 +10,16 @@ padding-bottom: 195px;
 @media (max-width:768px){
     padding-bottom: 373px;
 }
-background: #111;
+// background: #111;
+${props => {
+        if (props.theme.withBgi) {
+            return `
+        background: unset;
+        z-index:2;
+        `
+
+        }
+    }}
 
 `
 
@@ -24,7 +34,7 @@ ${props => {
             width: 100vw;
             height: 100vh;
 
-            // background:unset;
+            background:unset;
             // background-color: #000;
             background-image: url(/images/background-dark.jpg);
             // background-attachment: fixed;
@@ -37,8 +47,8 @@ ${props => {
 `
 export default function ({ children }) {
 
-    return (
-
+    return (<>
+        <Bgi />
 
         <Layout>
             <Head>
@@ -52,10 +62,10 @@ export default function ({ children }) {
                 <meta property="og:description" content="林穎輝 | 前端工程師 / 業餘攝影師" />
             </Head>
             <Nav />
-            <Bgi />
             {children}
             <Footer />
         </Layout>
+    </>
 
     )
 }
