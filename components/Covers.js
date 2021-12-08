@@ -96,7 +96,7 @@ export default function ({ path, covers }) {
         const coverPath = pathArr.join('/')
 
         temp.push(
-            <Link href={`/${path}/${element.id}`} as={`/${path}/${element.id}`}>
+            <Link href={`/${path}/${element.id}`} as={`/${path}/${element.id}`} key={element.id}>
                 <a>
                     <div className="cover-wrapper">
                         <div className="cover-img" style={{ backgroundImage: `url("${coverPath}")` }}></div>

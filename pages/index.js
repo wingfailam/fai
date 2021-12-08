@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import Covers from '../components/Covers'
 import { getProjects, getWorks } from '../lib/Images'
 import _ from 'lodash'
+import { useEffect, useState } from 'react'
 
 
 const Header = styled.header`
@@ -21,9 +22,20 @@ padding: 0 10px;
 export default function Home({
   projects,
   works,
-  shortProject,
-  shortWorks
 }) {
+
+  // const shortProject = (_.shuffle(projects)).slice(0, 6)
+  // const shortWorks = (_.shuffle(works)).slice(0, 6)
+  const [shortProject, setShortProject] = useState(projects.slice(0, 6));
+  const [shortWorks, setShortWorks] = useState(works.slice(0, 6));
+
+
+  useEffect(() => {
+    setShortProject((_.shuffle(projects)).slice(0, 6));
+    setShortWorks((_.shuffle(works)).slice(0, 6));
+  }, [projects,
+    works])
+
 
 
   return (
@@ -36,9 +48,9 @@ export default function Home({
         </Header>
         <AppContainer>
           <h2>FEATURED PROJECTS</h2>
-          <Covers path="projects" covers={shortProject} key={projects} />
+          <Covers path="projects" covers={shortProject} key='covers' />
           <h2>FEATURED WORKS</h2>
-          <Covers path="works" covers={shortWorks} key={shortWorks} />
+          <Covers path="works" covers={shortWorks} key='works' />
 
         </AppContainer>
       </Layout>
@@ -49,15 +61,12 @@ export default function Home({
 export async function getStaticProps() {
   const { works } = getWorks();
   const projects = getProjects();
-  const shortProject = (_.shuffle(projects)).slice(0, 6)
-  const shortWorks = (_.shuffle(works)).slice(0, 6)
+
 
   return {
     props: {
       projects,
       works,
-      shortProject,
-      shortWorks
     }
   }
 }
