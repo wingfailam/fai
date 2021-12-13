@@ -201,7 +201,10 @@ export default function Images({ images }) {
         }
         window.addEventListener('keydown', close)
         window.addEventListener('mousemove', handleMousemove)
-        return () => window.removeEventListener('keydown', close)
+        return () => {
+            window.removeEventListener('keydown', close)
+            window.removeEventListener('mousemove', handleMousemove)
+        }
     }, [])
     let temp = []
     images.forEach((element, index) => {
